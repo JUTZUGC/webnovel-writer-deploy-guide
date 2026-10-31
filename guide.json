@@ -1,0 +1,112 @@
+{
+  "owner": "JUTZUGC",
+  "code": "JUTZUGC",
+  "project": {
+    "key": "webnovelwriter",
+    "nameCn": "Webnovel Writer",
+    "repoName": "webnovel-writer-deploy-guide",
+    "oneLiner": "从初始化设定、规划卷纲到写章审查与沉淀记忆，把长篇连载的一致性交给一套插件流程",
+    "officialRepo": "https://github.com/lingfengQAQ/webnovel-writer",
+    "officialDocs": "https://lingfengqaq.github.io/webnovel-writer/docs/install.html",
+    "stars": "7.8k",
+    "license": "GPL-3.0",
+    "highlights": [
+      "整条流程串好：设定到写章到审查都有",
+      "长期一致性：记忆沉淀，伏笔不丢",
+      "可查询状态：只读面板看当前进度",
+      "插件市场安装：一条命令，不用克隆",
+      "中文文档：新手教程与安装指南齐全",
+      "GPL-3.0，可自行改造"
+    ],
+    "mcpSupport": "项目本身不含 MCP；本仓库的 MCP 只提供安装步骤、版本差异与常见问题。",
+    "webuiUrl": "",
+    "adapterPorts": "",
+    "collectedAt": "2026-10-31",
+    "verification": [
+      [
+        "README 确认插件市场安装命令、Python 依赖与 v6 / v8 差异",
+        "已核对 2026-10-31"
+      ],
+      [
+        "README 确认默认分支为 master、许可证为 GPL-3.0",
+        "已核对 2026-10-31"
+      ],
+      [
+        "未实测安装与初始化书籍",
+        "说明 2026-10-31"
+      ],
+      [
+        "MCP 冒烟：initialize / tools/list 返回 get_guide、search_guide、get_project_info",
+        "已验证 2026-10-31"
+      ],
+      [
+        "非目标宿主调用 get_guide 被拦截（HOST_NOT_ALLOWED）",
+        "已验证 2026-10-31"
+      ]
+    ],
+    "deploy": {
+      "type": "script",
+      "requires": [
+        "python"
+      ],
+      "steps": [
+        "claude plugin marketplace add lingfengQAQ/webnovel-writer --scope user",
+        "claude plugin install webnovel-writer@webnovel-writer-marketplace --scope user",
+        "python -m pip install -r https://raw.githubusercontent.com/lingfengQAQ/webnovel-writer/HEAD/requirements.txt",
+        "echo \"安装完成：在 Claude Code 里按提示初始化一本书\""
+      ],
+      "stepsPs": [
+        "claude plugin marketplace add lingfengQAQ/webnovel-writer --scope user",
+        "claude plugin install webnovel-writer@webnovel-writer-marketplace --scope user",
+        "python -m pip install -r https://raw.githubusercontent.com/lingfengQAQ/webnovel-writer/HEAD/requirements.txt",
+        "Write-Host \"安装完成：在 Claude Code 里按提示初始化一本书\""
+      ],
+      "source": "https://github.com/lingfengQAQ/webnovel-writer#快速开始"
+    },
+    "pitfalls": [
+      "claude 命令不存在：先安装并登录 Claude Code",
+      "插件找不到：确认 marketplace 名字与仓库名一致",
+      "pip 装依赖失败：换国内镜像，或建虚拟环境后再装",
+      "面板打不开：确认依赖装全，并按文档启动",
+      "记忆乱掉：不要手工改记忆文件，用流程里的审查步骤修",
+      "想升级到 v8：先读完 v8 安装指南，别直接覆盖旧目录",
+      "生成质量差：补足设定与卷纲，别让模型自由发挥"
+    ]
+  },
+  "gate": {
+    "allow": [
+      "dumate"
+    ],
+    "label": "百度搭子",
+    "url": "https://www.dumate.cn/",
+    "guideUrl": "https://github.com/JUTZUGC/webnovel-writer-deploy-guide",
+    "howToFix": [
+      "1. 打开 https://www.dumate.cn/ ，下载并安装「百度搭子」电脑端（Windows / macOS）",
+      "2. 用账号登录",
+      "3. 在对话窗口发送：你好，帮我从 github 部署 JUTZUGC/webnovel-writer-deploy-guide 到我的电脑上",
+      "4. 部署完成后，在同一对话窗口里继续使用"
+    ],
+    "hint": "请改用「百度搭子」部署后再使用；本工具没有网页版入口。",
+    "onError": "allow"
+  },
+  "keywords": [
+    "Webnovel Writer",
+    "AI 写小说",
+    "网文 创作 插件",
+    "Claude Code 插件 写作",
+    "长篇 一致性 写作",
+    "webnovel writer 教程",
+    "网文 大纲 生成",
+    "AI 续写 工具",
+    "webnovel writer deploy guide",
+    "小说 创作 流程"
+  ],
+  "topics": [
+    "writing",
+    "claude-code",
+    "novel",
+    "ai-writing",
+    "plugin",
+    "webnovel-writer"
+  ]
+}
